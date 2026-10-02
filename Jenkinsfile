@@ -9,9 +9,15 @@ pipeline {
             }
         }
 
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm ci'
+            }
+        }
+
         stage('Test') {
             steps {
-                sh 'docker run --rm -v "$WORKSPACE:/app" -w /app node:22-alpine sh -c "npm ci && npm test"'
+                sh 'npm test'
             }
         }
 
@@ -28,4 +34,15 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Check the Console Output.'
+        }
+    }
 }
+
+                
