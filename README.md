@@ -125,5 +125,6 @@ The project demonstrates automated testing, Docker image building, and publishin
 ## Repository
 Testing automatic Jenkins build
 Automatic trigger test 2
+Testing Jenkins polling automatically.
 
 https://github.com/sikha890/nodejs-demo-app
